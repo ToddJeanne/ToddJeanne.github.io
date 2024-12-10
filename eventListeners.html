@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Project1</title>
+  <style> 
+    img{width: 150px;}
+  </style>
+</head>
+<body>
+
+<p id="color"> Hello </p>
+
+<p id="change"> 1 </p>
+<img id="cat" src="https://media.newyorker.com/photos/5dfab39dde5fcf00086aec77/1:1/w_1706,h_1706,c_limit/Lane-Cats.jpg">
+</body>
+</html>
+
+<script>
+
+function changeColor () {
+
+document.getElementById("color").style.color = "red"
+}
+
+ function sayCat() {
+  
+  alert("cat!")
+  
+ }
+
+ function changeSize () {
+  document.getElementById("cat").style.width = "500px"
+  document.getElementById("cat").style.length = "400px"
+ }
+
+ function smallSize () {
+  document.getElementById("cat").style.width = "200px"
+  document.getElementById("cat").style.length = "100px"
+ }
+ document.getElementById("cat").addEventListener("mouseover", changeSize)
+ document.getElementById("cat").addEventListener("click", sayCat)
+ document.getElementById("color").addEventListener("click", changeColor)
+
+ document.getElementById("cat").addEventListener("mouseleave", smallSize)
+
+ var score = 1
+
+ document.getElementById("change").addEventListener("click" , up)
+
+ function up() {
+document.getElementById("change").innerHTML = "1" + score
+score = score +1
+alert()
+ }
+</script>

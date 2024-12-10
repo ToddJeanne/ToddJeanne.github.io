@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -7,51 +6,76 @@
   <meta name="viewport" content="width=device-width">
   <title>Freak Bob Clicker</title>
 
-    <style>
-img{width:200px;}
-body{background-color: rgb(24, 177, 131);}
-p{color: white;}
-   p{text-align: center;}
+  <style>
+    img {
+      width: 200px;
+    }
 
-img{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-top: auto;
-  border-style:ridge;
-  border-color:aqua;
-}
-    </style>
-    <button id="Increase" type="button"> Upgrade </button>
+    body {
+      background-color: rgb(24, 177, 131);
+    }
+
+    p {
+      color: white;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: auto;
+      margin-top: auto;
+      border-style: ridge;
+      border-color: aqua;
+    }
+
+    button {
+      text-align: center;
+    }
+  </style>
+
 </head>
+
 <body>
-  <img id="Bob" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWvPApea08MOMO19O7NuJi0nD7-r1vlBdjz1hc_pb098B_lN0:https://i.scdn.co/image/ab67616d00001e02cc1ede786d5d295e59a3b3f0&s">
+  <img id="Bob"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWvPApea08MOMO19O7NuJi0nD7-r1vlBdjz1hc_pb098B_lN0:https://i.scdn.co/image/ab67616d00001e02cc1ede786d5d295e59a3b3f0&s">
   <p id="Go"> Score: 0 </p>
+  <button id="upgradeButton">upgrade</button>
+  <p id="upgradeCost"> upgrade cost: 20 </p>
 </body>
+
 </html>
 
-<script> 
+<script>
 
-document.getElementById("Bob").addEventListener("click" , up)
-document.getElementById("Increase".addEventListener() 
+  document.getElementById("Bob").addEventListener("click", up)
+  document.getElementById("upgradeButton").addEventListener("click", upgrade)
 
-var score = 0
+  var score = 0
 
-var amount = 0
+  var clickpower = 1
 
+  var price = 20
 
 
   function up() {
-    document.getElementById("Go").innerHTML = "Score: " + score 
-    score = score +1
-  console.log(score)
+    score = score + clickpower
+    console.log(score)
+    document.getElementById("Go").innerHTML = "Score: " + score
   }
-  
-  function click() {
-document.getElementById("Increase").innerHTML = amount
-amount = amount +2
-  console.log(amount)
+
+  function upgrade() {
+    if (score >= price) {
+      score = score - price
+      document.getElementById("Go").innerHTML = "score: " + score
+      price = price * 2
+      document.getElementById("upgradeCost").innerHTML = "upgrade cost: " + price
+      clickpower = clickpower * 2
+    }
   }
-  
-  </script>
+
+</script>
